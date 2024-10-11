@@ -27,9 +27,10 @@ const displaySpacificPets = (data) => {
     // console.log(item)
 
     const petsBtn = document.createElement("div");
-    petsBtn.innerHTML = `
 
-    <button onclick="displayPetsByCategory('${item.category}')"  class="btn w-[200px] h-[70px] rounded-full text-xl"><img class=" w-7 h-7" src="${item.category_icon}"/>${item.category}</button>
+    petsBtn.innerHTML = `
+    
+    <button onclick="displayPetsByCategory('${item.category}')"  class="btn w-[200px] h-[70px] rounded-full text-xl"><img class=" w-7 h-7 " src="${item.category_icon}"/>${item.category}</button>
   `;
     const petsContiner = document.getElementById("petsButton");
     petsContiner.append(petsBtn);
