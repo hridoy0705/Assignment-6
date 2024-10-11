@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,18 +19,20 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-        <style>
-            .lato-font {
+    <style>
+        .lato-font {
             font-family: "Lato", sans-serif;
- 
-            }
-        </style>
+
+        }
+    </style>
 </head>
-<body class="bg-red-200">
+
+<body class="bg-green-300 ">
     <!-- Navber Section -->
-    <div class="navbar bg-base-100 w-11/12 mx-auto p-2 bg-red-200">
+   <section class="bg-green-300 shadow-md ">
+    <div class="navbar bg-base-100 w-11/12 mx-auto p-2 bg-green-300 shadow-md ">
         <div class="navbar-start">
-            <div class="dropdown">
+            <div class="dropdown ">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -44,39 +47,109 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-                <li><a class="text-xl fond-bold">Home</a></li> 
+                <li><a class="text-xl fond-bold">Home</a></li>
                 <li><a class="text-xl fond-bold">Shop</a> </li>
-                <li><a class="text-xl fond-bold" >Contact</a></li>
+                <li><a class="text-xl fond-bold">Contact</a></li>
             </ul>
         </div>
-        <div class="navbar-end ">
-        <i class="fa-regular fa-user w-[30px] h-[30px] p-3"></i>
+        <div class="navbar-end text-center">
+            <i class="fa-regular fa-user border-2 rounded-full p-3 cursor-pointer"></i>
         </div>
     </div>
-    <header class="bg-red-200">
+   </section>
+    <header class="bg-green-300 ">
         <section>
-            <div class="parant-dvi grid justify-center mt-8">
-                <h2 class="text-2xl font-semibold text-center">Bringing Families Together</h2>
-                <h1 class="text-7xl font-semibold text-center mt-4">Your Path to Adoption <br> Starts Here</h1>
-                <p class="text-center text-2 mt-3">It is a long established fact that a reader will be distracted by the readable content of a page when looking <br> at its
-                layout. The point of using Lorem Ipsum is that it has a.</p>
+            <div class="parant-dvi grid justify-center mt-8 w-11/12 mx-auto">
+                <h2 class="text-2xl font-bold text-center">Bringing Families Together</h2>
+                <h1 class="text-7xl font-semibold text-center mt-9">Your Path to Adoption <br> Starts Here</h1>
+                <p class="text-center text-2 mt-9">It is a long established fact that a reader will be distracted by the
+                    readable content of a page when looking <br> at its
+                    layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
 
-            <div class="grid place-items-center mt-4">
-            <button class="btn btn-success ">View More</button>
+            <div class="grid place-items-center mt-7">
+                <button class="btn btn-success ">View More</button>
             </div>
         </section>
     </header>
     <main>
         <section>
-            <div class="grid place-items-center mt-4">
-                <img class="bg-red-200 rounded-lg" src="images/pet.webp" alt="">
+            <div class="grid place-items-center mt-4 bg-green-300  w-11/12 mx-auto">
+                <img class="bg-green-300  rounded-lg w-[700px]" src="images/pets.png" alt="">
+
+                <h2 class="text-4xl mt-24 font-bold">Adopt Your Best Friend</h2>
+                <p class="text-xl mt-4 ">It is a long established fact that a reader will be distracted by the readable
+                    content of a<br> page when looking at its
+                    layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
 
         </section>
-    </main>
-    
 
-<script src="js/index.js"></script>
+        <!-- show all pets -->
+        <section>
+            
+            <!-- category button -->
+             <div id="petsButton" class="flex gap-9 justify-center items-center mt-8 "></div>
+            <!-- all pets show card -->
+
+           <div id="allPetContiner"></div>
+
+            <!-- button section -->
+
+        </section>
+    </main>
+    <!-- footer section start -->
+    <footer>
+        <section class="mt-14 bg-green-400 mb-1 p-4 text-black ">
+            <!-- footer section first column -->
+            <div class="parant-div grid md:grid-cols-2 lg:grid-cols-3 justify-between w-11/12 mx-auto">
+                <div class="w-11/12 mx-auto">
+                    <div class="flex items-center w-11/12 mx-auto">
+                        <img class="w-7 h-7" src="images/logo.webp" alt="">
+                        <a class="btn btn-ghost text-2xl font-bold">Peddy</a>
+                    </div>
+                    <div class="w-11/12 mx-auto">
+                        <li><a class="text-xl fond-bold">Location:av.Washington 165,NYCA 54003</a></li>
+                        <li><a class="text-xl fond-bold">Phone: +31 85 964 47 25</a> </li>
+                        <li><a class="text-xl fond-bold">Email: info@yourdomain.com</a></li>
+                        <li><a class="text-xl fond-bold">Openings hours: 9.00 AM - 5.00 PM</a></li>
+                    </div>
+                </div>
+                <!-- footer section second column -->
+                <div class="w-11/12 mx-auto">
+                    <a class="btn btn-ghost text-2xl font-bold">Useful Links</a>
+                    <li><a class="text-xl fond-bold">Home</a></li>
+                    <li><a class="text-xl fond-bold">About Us</a> </li>
+                    <li><a class="text-xl fond-bold">Animals</a></li>
+                    <li><a class="text-xl fond-bold">Foundation</a></li>
+                    <li><a class="text-xl fond-bold">Contact</a></li>
+                </div>
+                <!-- footer section thired column -->
+                <div class="w-11/12 mx-auto">
+                    <a class="btn btn-ghost text-2xl font-bold ">Drop a Message</a>
+                    <!-- input email -->
+                    <label class="input input-bordered flex items-center gap-2 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                            class="h-5 w-5 opacity-70">
+                            <path
+                                d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                            <path
+                                d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                        </svg>
+                        <input type="text" class="grow" placeholder="Email" />
+                    </label>
+                    <!-- button -->
+                    <div class="mt-4 grid place-">
+                        <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg font-bold">Subscrib</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+
+    <script src="js/index.js"></script>
+    <script src="js/feturs.js"></script>
 </body>
+
 </html>
