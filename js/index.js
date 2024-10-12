@@ -2,24 +2,41 @@
 const loadAllPetsData = () => {
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
     .then((res) => res.json())
-    .then((data) => displayAllPetsData(data.pets))
+    .then((data) => {
+      
+      document.getElementById("spinner").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("spinner").style.display = "none";
+        displayAllPetsData(data.pets);
+      }, 3000);
+      
+      
+    })
     .catch((error) => console.log(error));
 };
 
 const spacificPets = () => {
   fetch("https://openapi.programming-hero.com/api/peddy/categories")
     .then((res) => res.json())
-    .then((data) => displaySpacificPets(data.categories))
+    .then((data) => {
+      displaySpacificPets(data.categories);
+      
+    })
     .catch((error) => console.log(error));
 };
 
-
 const displayPetsByCategory = (id) => {
   //  alert(id)
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
-      .then((res) => res.json())
-      .then((data) => displayAllPetsData(data.data))
-      .catch((error) => console.log(error));
+  fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("spinner").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("spinner").style.display = "none";
+        displayAllPetsData(data.data);
+      }, 3000);
+    })
+    .catch((error) => console.log(error));
 };
 
 const displaySpacificPets = (data) => {
@@ -37,13 +54,33 @@ const displaySpacificPets = (data) => {
   });
 };
 
+// like button funcation
+const likeButtonFuncation = (id) => {
+  fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
+    .then((res) => res.json())
+    .then((data) => {
+      const likeData = data.pets.find((item) => item.petId === id);
+      const petImg = document.createElement("div");
+      petImg.innerHTML = `<img class="rounded-md" src="${likeData.image}"/>`;
+      const likeBtnShowContiner = document.getElementById("likeBtnShow");
+      likeBtnShowContiner.append(petImg);
+    
+    })
+    .catch((error) => console.log(error));
+};
+
+// sort by price button
+const sortByPriceFunction = (datas) => {
+console.log(datas)
+}
+
 // show all data
 const displayAllPetsData = (allPetsData) => {
   
   allPetContiner.innerHTML = " ";
-  if(allPetsData.length == 0){
+  if (allPetsData.length == 0) {
     allPetContiner.classList.remove("gird");
-    allPetContiner.classList = "grid justify-center items-center mt-7"
+    allPetContiner.classList = "grid justify-center items-center mt-7";
     allPetContiner.innerHTML = `
     <div class ="min-h screen w-full flex flex-col gap-5 justify-center items-center">
     <img src = "images/error.webp">
@@ -52,17 +89,14 @@ const displayAllPetsData = (allPetsData) => {
 its layout. The point of using Lorem Ipsum is that it has a.</p>
     </div>`;
     return;
-
-  }
-  else{
+  } else {
     allPetContiner.classList.add("gird");
   }
   allPetsData.forEach((item) => {
     // console.log(item)
     const petsCard = document.createElement("div");
     const allPetContiner = document.getElementById("allPetContiner");
-    allPetContiner.classList =
-      "grid md:grid-cols-2 lg:grid-cols-4 gap-4 w-11/12 mx-auto my-10";
+    allPetContiner.classList = "grid md:grid-cols-2 lg:grid-cols-3 gap-4";
     petsCard.classList = "card bg-base-100 w-full  hover:shadow-2xl";
     petsCard.innerHTML = `
 
@@ -78,15 +112,15 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
     <p><i class="fa-regular fa-calendar-days"></i> Date of Birth: ${item.date_of_birth}</p>
     <p><i class="fa-solid fa-venus-double"></i> Gender: ${item.gender}</p>
     <p><i class="fa-solid fa-dollar-sign"></i> Price: ${item.price}</p>
-    <div class="flex gap-2 justify-between pt-2">
-      <button class="btn btn-outline"><i class="fa-regular fa-thumbs-up text-2xl"></i></button>
-      <button class="btn btn-outline font-bold">Adopt</button>
+    <div class="flex gap-2 justify-evenly pt-2">
+      <button onclick="likeButtonFuncation(${item.petId})"class="btn btn-outline md:btn-sm"><i class="fa-regular fa-thumbs-up text-2xl"></i></button>
+      <button class="btn btn-outline font-bold md:btn-sm">Adopt</button>
       
       <!-- The button to open modal -->
-    <label for="customModal" class="btn w-[100px] btn-outline">Details</label>
+    <label for="customModal"  onclick="detailsButtonFuncation(${item.petId})" class="btn lg:w-[100px] w-fit btn-outline md:btn-sm">Details</label>
 
     <!-- Put this part before </body> tag -->
-    <input type="checkbox" id="customModal" class="modal-toggle" />
+  <input type="checkbox" id="customModal" class="modal-toggle" />
     <div class="modal" role="dialog">
     <div class="modal-box">
     <h3 class="text-lg font-bold">Hello!</h3>
@@ -116,4 +150,3 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
 
 loadAllPetsData();
 spacificPets();
-
