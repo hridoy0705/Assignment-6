@@ -1,15 +1,14 @@
 // fetching data loaded
-const loadAllPetsData = () => {
-  fetch("https://openapi.programming-hero.com/api/peddy/pets")
+    const loadAllPetsData = () => {
+    fetch("https://openapi.programming-hero.com/api/peddy/pets")
     .then((res) => res.json())
     .then((data) => {
-      const datas = data.pets;
-
-      document.getElementById("spinner").style.display = "block";
-      setTimeout(function () {
-        document.getElementById("spinner").style.display = "none";
-        displayAllPetsData(data.pets);
-        reloadPage(product);
+    const datas = data.pets;
+    document.getElementById("spinner").style.display = "block";
+    setTimeout(function () {
+    document.getElementById("spinner").style.display = "none";
+    displayAllPetsData(data.pets);
+    reloadPage(product);
       }, 3000);
       product = [...datas];
 
@@ -34,7 +33,6 @@ const spacificPets = () => {
 };
 
 const displayPetsByCategory = (id) => {
-  //  alert(id)
   fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
     .then((res) => res.json())
     .then((data) => {
@@ -47,12 +45,9 @@ const displayPetsByCategory = (id) => {
     .catch((error) => console.log(error));
 };
 
-const displaySpacificPets = (data) => {
-  data.forEach((item) => {
-    // console.log(item)
-
-    const petsBtn = document.createElement("div");
-
+    const displaySpacificPets = (data) => {
+    data.forEach((item) => {
+    const petsBtn = document.createElement("div");  
     petsBtn.innerHTML = `
     
     <button onclick="displayPetsByCategory('${item.category}')"  class="btn w-[200px] h-[70px] rounded-full text-xl"><img class=" w-7 h-7 " src="${item.category_icon}"/>${item.category}</button>
@@ -112,9 +107,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
     petsCard.innerHTML = `
 
   <figure class="px-4 pt-4">
-    <img
-      src=${item.image}
-      alt="Shoes"
+    <img src="${item.image}" alt="Shoes"
       class="rounded-xl object-cover w-full" />
   </figure>
   <div class="card-body">
@@ -128,9 +121,8 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
       <button class="btn btn-outline font-bold md:btn-sm">Adopt</button>
       
       <!-- The button to open modal -->
-    <label for="customModal"  onclick="detailsButtonFuncation(${item.petId})" class="btn lg:w-[100px] w-fit btn-outline md:btn-sm">Details</label>
-
-    <!-- Put this part before </body> tag -->
+    <label for="customModal" onclick="loadDetailes(${item.petId})"  class="btn lg:w-[100px] w-fit btn-outline md:btn-sm">Details</label>
+      <!-- Put this part before </body> tag -->
   <input type="checkbox" id="customModal" class="modal-toggle" />
     <div class="modal" role="dialog">
     <div class="modal-box">
@@ -154,6 +146,9 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
     </div>
   </div>
 
+
+
+    
   `;
     allPetContiner.append(petsCard);
   });
